@@ -14,10 +14,16 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.validation.constraints.NotBlank;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @Entity(name = "job")
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class JobEntity {
 
   @Id
@@ -27,7 +33,7 @@ public class JobEntity {
   private String description;
   private String benefits;
 
-  @NotBlank(message="Informe o nivel")
+  @NotBlank(message = "Informe o nivel")
   private String level;
 
   @ManyToOne()
