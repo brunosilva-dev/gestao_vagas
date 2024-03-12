@@ -20,14 +20,15 @@ public class JWTCandidateProvider {
     Algorithm algorithm = Algorithm.HMAC256(secretKey);
 
     try {
-      var tokenDecode = JWT.require(algorithm)
+      var tokenDecoded = JWT.require(algorithm)
           .build()
           .verify(token);
 
-      return tokenDecode;
+      return tokenDecoded;
     } catch (JWTVerificationException e) {
       e.printStackTrace();
       return null;
     }
   }
+
 }

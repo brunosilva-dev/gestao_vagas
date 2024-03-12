@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
@@ -25,7 +24,6 @@ public class SecurityCandidateFilter extends OncePerRequestFilter {
   @Override
   protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
       throws ServletException, IOException {
-
     // SecurityContextHolder.getContext().setAuthentication(null);
     String header = request.getHeader("Authorization");
 
@@ -49,6 +47,7 @@ public class SecurityCandidateFilter extends OncePerRequestFilter {
             grants);
         SecurityContextHolder.getContext().setAuthentication(auth);
       }
+
     }
 
     filterChain.doFilter(request, response);
