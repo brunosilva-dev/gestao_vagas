@@ -9,6 +9,6 @@ import br.com.neomeca.gestao_vagas.modules.jobs.entities.JobEntity;
 
 public interface JobRepository extends JpaRepository<JobEntity, UUID> {
 
-  List<JobEntity> findByDescriptionContaining(String filter);
+  List<JobEntity> findByDescriptionContainingIgnoreCase(String filter);
 
 }
